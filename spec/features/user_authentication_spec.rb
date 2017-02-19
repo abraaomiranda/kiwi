@@ -1,14 +1,24 @@
 require 'rails_helper'
 
 RSpec.feature 'User authentication', type: :feature do
-  let!(:user) { FactoryGirl.create(:user) }
+  given!(:user) { FactoryGirl.create(:user) }
 
-  scenario 'User logs in the application' do
+  scenario 'User logs in using email' do
     visit new_user_session_path
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Log in'
+    fill_in 'Login', with: user.email
+    fill_in 'Senha', with: user.password
+    click_button 'Entrar'
+
+    expect(page).to have_text('Logado com sucesso')
+  end
+
+  scenario 'User logs in using username' do
+    visit new_user_session_path
+
+    fill_in 'Login', with: user.username
+    fill_in 'Senha', with: user.password
+    click_button 'Entrar'
 
     expect(page).to have_text('Logado com sucesso')
   end
@@ -16,12 +26,12 @@ RSpec.feature 'User authentication', type: :feature do
   scenario 'User tries to log in with incorrect password' do
     visit new_user_session_path
 
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: 'incorrectpassword'
-    click_button 'Log in'
+    fill_in 'Login', with: user.email
+    fill_in 'Senha', with: 'incorrectpassword'
+    click_button 'Entrar'
 
     expect(page).to have_text('Email ou senha inválidos')
-    expect(page).to have_button('Log in')
+    expect(page).to have_button('Entrar')
   end
 
   scenario 'Logged in user logs out' do
@@ -30,6 +40,6 @@ RSpec.feature 'User authentication', type: :feature do
 
     click_link 'Sair'
 
-    expect(page).to have_button('Log in')
+    expect(page).to have_button('Entrar')
   end
 end
