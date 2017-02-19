@@ -1,0 +1,12 @@
+header.navigation role="banner"
+  .navigation-wrapper
+    a href="javascript:void(0)" class="logo"
+      img src="http://www.smartblog.es/wp-content/uploads/2015/10/Kiwi.png" alt="Logo Image"
+    a.navigation-menu-button#js-mobile-menu href="javascript:void(0)" MENU
+    .navigation-tools
+      ul#js-navigation-menu.navigation-menu.show
+        - if user_signed_in?
+          li
+            = link_to 'Sair', destroy_user_session_path, method: :delete
+        - else
+          = link_to 'Entrar', new_user_session_path, class: 'login-button'

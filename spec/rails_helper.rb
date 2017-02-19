@@ -17,4 +17,7 @@ RSpec.configure do |config|
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
   config.include ActiveSupport::Testing::TimeHelpers
+
+  config.include Warden::Test::Helpers
+
 end
