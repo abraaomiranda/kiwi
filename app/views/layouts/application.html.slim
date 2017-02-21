@@ -19,5 +19,7 @@ html lang="pt"
 
   body class=body_class
     = render 'navbar'
-    = render 'flash_messages'
-    = yield
+    .container
+      .row
+        = render 'flash_messages'
+        = yield
