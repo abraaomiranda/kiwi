@@ -1,0 +1,11 @@
+h2 Esqueceu sua senha?
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }, \
+  defaults:{                                                                                               \
+      input_html:{class:'form-control'},                                                                   \
+      wrapper_html:{class:'form-group'}                                                                    \
+  }) do |f|                                                                                                \
+  = f.error_notification
+= f.input :email, required: true, autofocus: true
+= f.button :submit, "Me envie instruções"
+= render "devise/shared/links"
+
