@@ -4,6 +4,10 @@ RSpec.describe User, type: :model do
 
   let(:user) { FactoryGirl.build :user }
 
+  describe 'associations' do
+    it { should have_many(:posts) }
+  end
+
   describe 'validations' do
     context 'presence' do
       it { should validate_presence_of(:username) }
@@ -34,11 +38,16 @@ RSpec.describe User, type: :model do
       let(:lewis) { create :user, username: 'cslewis', email: 'lewis@email.com' }
 
       it 'by email' do
-        expect(User.find_for_database_authentication(login:george.email)).to eql george
+        expect(User.find_for_database_authentication(email:george.email)).to eql george
       end
 
       it 'by username' do
+        expect(User.find_for_database_authentication(username:lewis.username)).to eql lewis
+      end
+
+      it 'by login' do
         expect(User.find_for_database_authentication(login:lewis.username)).to eql lewis
+        expect(User.find_for_database_authentication(login:george.email)).to eql george
       end
     end
   end

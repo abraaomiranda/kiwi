@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   attr_accessor :login
 
+  has_many :posts
+
   validates :username,
             :presence => true,
             :uniqueness => {
