@@ -5,10 +5,10 @@ h2 Altere sua senha
       wrapper_html:{class:'form-group'}                                                                   \
   }) do |f|
   = f.error_notification
-= f.input :reset_password_token, as: :hidden
-= f.full_error :reset_password_token
-= f.input :password, label: "Nova senha", required: true, autofocus: true, hint: ("Mínimo de caracteres: #{@minimum_password_length}" if @minimum_password_length)
-= f.input :password_confirmation, label: "Confirmar senha", required: true
-= f.button :submit, "Redefinir senha"
-= render "devise/shared/links"
+  = f.input :reset_password_token, as: :hidden
+  = f.full_error :reset_password_token
+  = f.input :password, label: "Nova senha", required: true, autofocus: true, hint: ("Mínimo de caracteres: #{@minimum_password_length}" if @minimum_password_length)
+  = f.input :password_confirmation, label: "Confirmar senha", required: true
+  = f.button :submit, "Redefinir senha"
+  = render "devise/shared/links"
 

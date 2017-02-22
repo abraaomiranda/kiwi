@@ -3,9 +3,9 @@ h2 Esqueceu sua senha?
   defaults:{                                                                                               \
       input_html:{class:'form-control'},                                                                   \
       wrapper_html:{class:'form-group'}                                                                    \
-  }) do |f|                                                                                                \
+  }) do |f|
   = f.error_notification
-= f.input :email, required: true, autofocus: true
-= f.button :submit, "Me envie instruções"
-= render "devise/shared/links"
+  = f.input :email, required: true, autofocus: true
+  = f.button :submit, "Me envie instruções"
+  = render "devise/shared/links"
 

@@ -7,6 +7,7 @@ RSpec.feature 'User management', type: :feature do
     visit new_user_registration_path
 
     fill_in 'Usuário', with: 'tesname'
+    fill_in 'Nome', with: 'Test Example'
     fill_in 'Email', with: 'test@email.com'
     fill_in 'Senha', with: 'secretpassword'
     fill_in 'Confirme sua senha', with: 'secretpassword'
@@ -20,6 +21,7 @@ RSpec.feature 'User management', type: :feature do
     visit edit_user_registration_path
 
     fill_in 'Usuário', with: 'newusername'
+    fill_in 'Nome', with: 'New Example'
     fill_in 'Email', with: 'new@email.com'
     fill_in 'Nova senha', with: 'newsecretpassword'
     fill_in 'Confirmar nova senha', with: 'newsecretpassword'
@@ -34,6 +36,7 @@ RSpec.feature 'User management', type: :feature do
     visit edit_user_registration_path
 
     fill_in 'Usuário', with: 'newusername'
+    fill_in 'Nome', with: 'New Example'
     fill_in 'Email', with: 'new@email.com'
     fill_in 'Nova senha', with: 'newsecretpassword'
     fill_in 'Confirmar nova senha', with: 'newsecretpassword'

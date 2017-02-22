@@ -8,6 +8,7 @@ RSpec.describe User, type: :model do
     context 'presence' do
       it { should validate_presence_of(:username) }
       it { should validate_presence_of(:email) }
+      it { should validate_presence_of(:name) }
     end
 
     context 'uniqueness' do
