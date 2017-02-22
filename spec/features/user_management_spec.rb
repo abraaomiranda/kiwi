@@ -6,8 +6,8 @@ RSpec.feature 'User management', type: :feature do
   scenario 'User sign up' do
     visit new_user_registration_path
 
-    fill_in 'Usuário', with: 'tesname'
     fill_in 'Nome', with: 'Test Example'
+    fill_in 'Usuário', with: 'tesname'
     fill_in 'Email', with: 'test@email.com'
     fill_in 'Senha', with: 'secretpassword'
     fill_in 'Confirme sua senha', with: 'secretpassword'
