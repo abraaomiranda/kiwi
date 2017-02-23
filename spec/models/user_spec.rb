@@ -6,6 +6,8 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:posts) }
+    it { should have_many(:followers).class_name('Follow').inverse_of('followed') }
+    it { should have_many(:follows).inverse_of('follower') }
   end
 
   describe 'validations' do

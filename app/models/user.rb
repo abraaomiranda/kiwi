@@ -7,6 +7,8 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :posts
+  has_many :followers, class_name: 'Follow', inverse_of: :followed
+  has_many :follows, inverse_of: :follower
 
   validates :username,
             :presence => true,
