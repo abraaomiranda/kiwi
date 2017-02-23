@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User authentication', type: :feature do
-  given!(:user) { FactoryGirl.create(:user) }
+  given!(:user) { create(:user) }
 
   scenario 'User logs in using email' do
     visit new_user_session_path

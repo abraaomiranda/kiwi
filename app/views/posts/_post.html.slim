@@ -1,0 +1,6 @@
+a.list-group-item
+  - if post.author == current_user
+    = button_to 'x', post_path(post), method: :delete, class:"close", data:{confirm: 'Tem certeza?'}
+  h4.list-group-item-heading = post.author_name
+  small.list-group-item-info = post.author_username
+  p.list-group-item-text = post.content

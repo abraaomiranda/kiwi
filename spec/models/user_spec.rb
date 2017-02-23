@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
 
-  let(:user) { FactoryGirl.build :user }
+  let(:user) { build :user }
 
   describe 'associations' do
     it { should have_many(:posts) }

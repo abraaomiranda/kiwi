@@ -5058,15 +5058,15 @@ a.thumbnail.active {
     right: -21px;
     color: inherit;
 }
-.alert-success {
+.alert-notice {
     background-color: #93c54b;
     border-color: transparent;
     color: #ffffff;
 }
-.alert-success hr {
+.alert-notice hr {
     border-top-color: rgba(0, 0, 0, 0);
 }
-.alert-success .alert-link {
+.alert-notice .alert-link {
     color: #e6e6e6;
 }
 .alert-info {
@@ -5080,26 +5080,26 @@ a.thumbnail.active {
 .alert-info .alert-link {
     color: #e6e6e6;
 }
-.alert-warning {
+.alert-alert {
     background-color: #f47c3c;
     border-color: transparent;
     color: #ffffff;
 }
-.alert-warning hr {
+.alert-alert hr {
     border-top-color: rgba(0, 0, 0, 0);
 }
-.alert-warning .alert-link {
+.alert-alert .alert-link {
     color: #e6e6e6;
 }
-.alert-danger {
+.alert-error {
     background-color: #d9534f;
     border-color: transparent;
     color: #ffffff;
 }
-.alert-danger hr {
+.alert-error hr {
     border-top-color: rgba(0, 0, 0, 0);
 }
-.alert-danger .alert-link {
+.alert-error .alert-link {
     color: #e6e6e6;
 }
 @-webkit-keyframes progress-bar-stripes {

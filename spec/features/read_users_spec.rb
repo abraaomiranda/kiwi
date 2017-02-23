@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'Read users', type: :feature do
-  given!(:user) { FactoryGirl.create(:user) }
+  given!(:user) { create(:user) }
 
   scenario 'User should see the list of users' do
     other_user = FactoryGirl.create(:user)

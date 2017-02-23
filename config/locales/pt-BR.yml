@@ -216,5 +216,8 @@ pt-BR:
     errors:
       <<: *errors
   activerecord:
+    attributes:
+      post:
+        content: Conteúdo
     errors:
       <<: *errors

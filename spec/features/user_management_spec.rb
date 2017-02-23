@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature 'User management', type: :feature do
-  given(:user) { FactoryGirl.create(:user) }
+  given(:user) { create(:user) }
 
   scenario 'User sign up' do
     visit new_user_registration_path

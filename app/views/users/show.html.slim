@@ -1,6 +1,7 @@
-.panel.panel-default.col-md-3
-  .panel-body.text-center
-    h4 = @user.name
-    p = @user.username
+.col-md-3
+ = render 'user_info', user: @user
+
+.col-lg-8
+  = render 'posts/posts_list', posts: @posts
 
 

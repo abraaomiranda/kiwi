@@ -1,0 +1,11 @@
+.form-group
+  = simple_form_for(post, defaults: {input_html:{class:'form-control'}}, ) do |f|
+    .input-group
+      = f.input :content,
+              as: :text,
+              placeholder:'No máximo 140 caracteres',
+              label: false, input_html: { maxlength: 140 },
+              error: false
+      span.input-group-btn
+        = f.button :submit, 'Postar', class:'btn btn-lg'
+

@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users, only: [:index, :show]
+  resources :posts, only: [:create, :destroy]
+  resources :home, only: :index
 end
