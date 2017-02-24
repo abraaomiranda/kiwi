@@ -1,0 +1,6 @@
+= simple_form_for(follow, method: :delete) do |f|
+  = f.input :followed_id,
+          as: :hidden,
+          value: followed_id
+  = f.button :submit, 'Deixar de seguir', class: 'btn btn-danger'
+

@@ -1,0 +1,5 @@
+= simple_form_for follow  do |f|
+  = f.input :followed_id,
+          as: :hidden,
+          value: followed_id
+  = f.button :submit, 'Seguir', class:'btn btn-success'

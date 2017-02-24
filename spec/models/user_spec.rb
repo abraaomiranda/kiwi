@@ -6,8 +6,10 @@ RSpec.describe User, type: :model do
 
   describe 'associations' do
     it { should have_many(:posts) }
-    it { should have_many(:followers).class_name('Follow').inverse_of('followed') }
-    it { should have_many(:follows).inverse_of('follower') }
+    it { should have_many(:followers_relation).class_name('Follow').with_foreign_key('followed_id').dependent(:destroy) }
+    it { should have_many(:follows_relation).class_name('Follow').with_foreign_key('follower_id').dependent(:destroy) }
+    it { should have_many(:follows).class_name('User').through('follows_relation') }
+    it { should have_many(:followers).class_name('User').through('followers_relation') }
   end
 
   describe 'validations' do

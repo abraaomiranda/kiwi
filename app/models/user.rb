@@ -7,8 +7,10 @@ class User < ApplicationRecord
   attr_accessor :login
 
   has_many :posts
-  has_many :followers, class_name: 'Follow', inverse_of: :followed
-  has_many :follows, inverse_of: :follower
+  has_many :follows_relation, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followers_relation, class_name: 'Follow', foreign_key: 'followed_id', dependent: :destroy
+  has_many :followers, class_name: 'User', through: :followers_relation, source: :follower
+  has_many :follows, class_name: 'User', through: :follows_relation, source: :followed
 
   validates :username,
             :presence => true,
@@ -25,6 +27,10 @@ class User < ApplicationRecord
     elsif conditions.has_key?(:username) || conditions.has_key?(:email)
       where(conditions.to_hash).first
     end
+  end
+
+  def following?(user)
+    follows.include? user
   end
 
 end
