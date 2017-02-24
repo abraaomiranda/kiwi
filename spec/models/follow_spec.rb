@@ -10,8 +10,12 @@ RSpec.describe Follow, type: :model do
 
   describe 'validations' do
     context 'presence' do
-      it { should validate_presence_of(:follower) }
-      it { should validate_presence_of(:followed) }
+      it { should validate_presence_of(:follower_id) }
+      it { should validate_presence_of(:followed_id) }
+    end
+
+    context 'uniqueness' do
+      it { should validate_uniqueness_of(:followed_id).scoped_to(:follower_id) }
     end
   end
 end
