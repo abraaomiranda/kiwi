@@ -12,8 +12,6 @@
  *
  *
  *= require normalize-rails
- *= require bootswatch/_signin
- *= require bootswatch/_gravatar
  *= require bootswatch/bootswatch
  *= require_self
  */
