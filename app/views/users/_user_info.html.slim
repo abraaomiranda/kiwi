@@ -1,5 +1,6 @@
 .panel.panel-default
   .panel-body.text-center
+    =gravatar_image_for @user
     h4 = @user.name
     p = @user.username
     = follow_button_for(@user)

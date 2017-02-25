@@ -1,4 +1,11 @@
 module UsersHelper
+
+  def gravatar_image_for(user)
+    imagem_hash = Digest::MD5::hexdigest(user.email.downcase.strip)
+    url = "https://secure.gravatar.com/avatar/#{imagem_hash}?d=mm"
+    image_tag(url, alt: user.name, class: 'img-circle gravatar')
+  end
+
   def follow_button_for(user)
     return if current_user == user
     if user_signed_in? && current_user.following?(user)

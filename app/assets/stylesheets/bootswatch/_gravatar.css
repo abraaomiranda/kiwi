@@ -1,0 +1,19 @@
+span > .gravatar{
+    position:absolute;
+    top:50%;
+    display:block;
+    -webkit-transform: translate(-20%, -50%);
+    height: 70%;
+}
+
+a.dropdown-toggle > .gravatar{
+    width: 50%;
+}
+
+
+.navbar-nav > li > a.dropdown-toggle{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    vertical-align: middle;
+
+}
