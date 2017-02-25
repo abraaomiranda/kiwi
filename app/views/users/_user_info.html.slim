@@ -1,17 +1,17 @@
 .panel.panel-default
   .panel-body.text-center
     =gravatar_image_for @user
-    h4 = @user.name
-    p = @user.username
+    h3 = @user.name
+    p.text-muted = @user.username
     = follow_button_for(@user)
 
     ul.list-inline.stats
-      li
+      li.post-count
         p Post
         = link_to @user.posts.count, @user
-      li
+      li.follows-count
         p Seguindo
         = link_to @user.follows.count, follows_user_path(@user)
-      li
+      li.followers-count
         p Segiudores
         = link_to @user.followers.count, followers_user_path(@user)

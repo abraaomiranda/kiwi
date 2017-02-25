@@ -34,5 +34,42 @@ RSpec.feature 'Follow user', type: :feature do
     expect(page).to have_current_path(user_path(follow.followed))
   end
 
+  scenario 'List followed users' do
+    another_user = create :user
+    follow = create :follow, followed: user
+    visit user_path(follow.follower)
+
+    find('.follows-count a').click
+
+    expect(page).to have_text(user.username)
+    expect(page).to_not have_text(another_user.username)
+  end
+
+  scenario 'Should see message when there are none followed users' do
+    visit user_path(user)
+
+    find('.follows-count a').click
+
+    expect(page).to have_text('Não existem usuários para serem exibidos.')
+  end
+
+  scenario 'List followers users' do
+    another_user = create :user
+    follow = create :follow, follower: user
+    visit user_path(follow.followed)
+
+    find('.followers-count a').click
+
+    expect(page).to have_text(user.username)
+    expect(page).to_not have_text(another_user.username)
+  end
+
+  scenario 'Should see message when there are none followers' do
+    visit user_path(user)
+
+    find('.followers-count a').click
+
+    expect(page).to have_text('Não existem usuários para serem exibidos.')
+  end
 
 end
