@@ -4,3 +4,14 @@
     h4 = @user.name
     p = @user.username
     = follow_button_for(@user)
+
+    ul.list-inline.stats
+      li
+        p Post
+        = link_to @user.posts.count, @user
+      li
+        p Seguindo
+        = link_to @user.follows.count, follows_user_path(@user)
+      li
+        p Segiudores
+        = link_to @user.followers.count, followers_user_path(@user)

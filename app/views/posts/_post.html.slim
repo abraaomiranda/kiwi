@@ -1,6 +1,10 @@
-a.list-group-item
+.list-group-item
   - if post.author == current_user
     = button_to 'x', post_path(post), method: :delete, class:"close", data:{confirm: 'Tem certeza?'}
-  h4.list-group-item-heading = post.author_name
-  small.list-group-item-info = post.author_username
-  p.list-group-item-text = post.content
+  span.post
+    = gravatar_image_for post.author
+  .list-group-item-text.col-md-offset-1
+    h4.inline = link_to post.author_name, post.author
+    small.inline
+       = "@#{post.author_username} - #{time_ago_in_words(post.created_at)} atrás"
+    p.list-group-item-text = post.content
