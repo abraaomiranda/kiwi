@@ -19,7 +19,7 @@ a.dropdown-toggle > .gravatar{
 }
 
 
-.navbar-nav > li > a.dropdown-toggle{
+.navbar-nav > li > a.dropdown-toggle.gravatar{
     padding-top: 10px;
     padding-bottom: 10px;
     vertical-align: middle;
