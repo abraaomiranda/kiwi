@@ -7,6 +7,6 @@ class NotificationService
   private
 
   def self.notification_rendered(notification)
-    ApplicationController.renderer.render(partial: 'notifications/notification', locals: { notification: notification })
+    ApplicationController.renderer.render(partial: 'notifications/nav_notification', locals: { notification: notification })
   end
 end

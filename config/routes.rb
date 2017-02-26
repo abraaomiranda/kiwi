@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :posts, only: [:create, :destroy]
   resources :follows, only: [:create, :destroy]
+  resources :notifications, only: :index
   resources :home, only: :index
 
   mount ActionCable.server => '/cable'

@@ -1,0 +1,3 @@
+li
+  = link_to "#{notification.owner.name} #{notification.message} - #{time_ago_in_words(notification.created_at)} atrás",
+          notification.reference

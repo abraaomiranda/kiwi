@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_notifcations, if: :user_signed_in?
+  before_action :set_unread_notifcations, if: :user_signed_in?
 
   protected
 
@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
-  def set_notifcations
-    @notifications = current_user.notifications.where(read: false)
+  def set_unread_notifcations
+    @unread_notifications = current_user.notifications.includes(:owner).where(read: false).limit(5)
   end
 
 end

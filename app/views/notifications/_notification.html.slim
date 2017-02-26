@@ -1,3 +1,5 @@
-li
-  = link_to "#{notification.owner.name} #{notification.message} - #{time_ago_in_words(notification.created_at)} atrás",
-          notification.reference
+= link_to notification.reference, class: 'list-group-item' do
+  span
+    = gravatar_image_for notification.owner
+  .list-group-item-text.col-md-offset-1
+    h5 = "#{notification.owner.name} #{notification.message} - #{time_ago_in_words(notification.created_at)} atrás"

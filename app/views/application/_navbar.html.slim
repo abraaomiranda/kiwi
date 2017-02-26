@@ -15,8 +15,8 @@ nav.navbar.navbar-default
           li
             a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
               | Notificações
-              span.badge#notificationCounter 0
-            = render 'notifications/notifications_list', notifications: @notifications
+              span.badge#notificationCounter = @unread_notifications.count
+            = render 'notifications/nav_notifications_list', notifications: @unread_notifications
       ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li

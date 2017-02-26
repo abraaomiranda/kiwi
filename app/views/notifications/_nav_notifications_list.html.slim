@@ -1,0 +1,9 @@
+ul.dropdown-menu#notificationList role="menu"
+  - if notifications.any?
+    - notifications.each do |notification|
+      = render 'notifications/nav_notification', notification: notification
+  - else
+    li.text-center#noNotifications
+      small Nada novo :(
+  li.text-center
+    = link_to 'Ver mais', notifications_path
