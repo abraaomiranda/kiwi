@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  devise_for :users
+  devise_for :users, path: 'auth'
 
   resources :users, only: [:index, :show] do
     member do

@@ -19,6 +19,8 @@ gem 'normalize-rails',        '3.0.3'
 gem 'rollbar',                '2.14.0'
 gem 'devise',                 '4.2.0'
 gem 'kaminari'
+gem 'has_scope',              '0.7.0'
+gem 'pg_search',              '2.0.1'
 
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'

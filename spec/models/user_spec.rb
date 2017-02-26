@@ -36,7 +36,38 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe '.find_for_database_authentication' do
+  describe 'scopes' do
+    describe '.search_by_name_or_username' do
+      let(:jon) { create :user, name: 'Jon Snow', username:'know_nothing' }
+      let(:daenerys) { create :user, name: 'Daenerys Targaryen', username:'dracarys' }
+
+      it 'should return user by username' do
+        result = User.search_by_name_or_username('know_nothing')
+        expect(result).to include jon
+        expect(result.count).to eq 1
+      end
+
+      it 'should return user by name' do
+        result = User.search_by_name_or_username('daenerys')
+        expect(result).to include daenerys
+        expect(result.count).to eq 1
+      end
+
+      it 'should return user by some parts of username' do
+        result = User.search_by_name_or_username('nothing')
+        expect(result).to include jon
+        expect(result.count).to eq 1
+      end
+
+      it 'should return user by some parts of name' do
+        result = User.search_by_name_or_username('dae targ')
+        expect(result).to include daenerys
+        expect(result.count).to eq 1
+      end
+    end
+  end
+
+  describe '#find_for_database_authentication' do
     describe 'should return existing user' do
       let(:george) { create :user, username: 'geroge_martin', email: 'gege@email.com' }
       let(:lewis) { create :user, username: 'cslewis', email: 'lewis@email.com' }

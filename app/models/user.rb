@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+  include PgSearch
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
@@ -20,6 +20,12 @@ class User < ApplicationRecord
             }
 
   validates :name, presence: true
+
+  pg_search_scope :search_by_name_or_username,
+                  against: [:name, :username],
+                  using: {
+                      tsearch: {prefix: true}
+                  }
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

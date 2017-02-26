@@ -31,7 +31,11 @@ nav.navbar.navbar-default
         -else
           li
             = link_to 'Entrar', new_user_session_path
-      form.navbar-form.navbar-right role="search"
+      = form_tag users_path, method: :get, class: 'navbar-form navbar-right', role: 'search'
         .form-group
-          input.form-control placeholder="Usuário" type="text" /
-        button.btn.btn-default type="submit"  Procurar
+          = text_field_tag :search_by_name_or_username,
+                  params[:search_by_name_or_username],
+                  placeholder: 'Procurando alguém?',
+                  class: 'form-control',
+                  id: 'search_navbar_input'
+          = submit_tag 'Buscar', class: 'btn', id: 'search_navbar_button'

@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-
   before_action :set_user, except: :index
 
+  has_scope :search_by_name_or_username
+
   def index
-    @users = User.all.page params[:page]
+    @users = apply_scopes(User).page params[:page]
   end
 
   def show
