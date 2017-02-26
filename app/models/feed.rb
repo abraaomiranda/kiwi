@@ -1,11 +1,13 @@
 class Feed
+  attr_reader :posts
 
-  def initialize(user)
+  def initialize(user, params={})
     @user = user
+    set_posts(params[:page])
   end
 
-  def posts
+  def set_posts(page)
     follows_ids = @user.follows.pluck(:id) << @user.id
-    Post.where(user_id: follows_ids).includes(:author)
+    @posts = Post.where(user_id: follows_ids).includes(:author).page(page)
   end
 end

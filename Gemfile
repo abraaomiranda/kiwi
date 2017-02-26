@@ -18,6 +18,7 @@ gem 'bootstrap-sass',         '3.3.6'
 gem 'normalize-rails',        '3.0.3'
 gem 'rollbar',                '2.14.0'
 gem 'devise',                 '4.2.0'
+gem 'kaminari'
 
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'

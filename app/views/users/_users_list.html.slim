@@ -1,5 +1,6 @@
 -if users.any?
   .list-group
     = render users
+    = paginate users
 -else
   'Não existem usuários para serem exibidos.'

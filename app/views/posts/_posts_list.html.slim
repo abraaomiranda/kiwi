@@ -2,6 +2,7 @@ h1 Publicações
 -if posts.any?
   .list-group
     = render posts
+    = paginate posts
 -else
   .text-center
     | Não existem posts a serem exibidos :,(
