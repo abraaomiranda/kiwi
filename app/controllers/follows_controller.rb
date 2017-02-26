@@ -3,8 +3,11 @@ class FollowsController < ApplicationController
 
   def create
     follow = current_user.follows_relation.create(follow_params)
-    FollowCreator.new(follow).create
-    redirect_to follow.followed, notice: 'Você está seguindo essa pessoa'
+    if FollowCreator.new(follow).create
+      redirect_to follow.followed, notice: 'Você está seguindo essa pessoa'
+    else
+      redirect_to current_user
+    end
   end
 
   def destroy

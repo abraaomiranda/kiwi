@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def destroy
     post = current_user.posts.find params[:id]
     post.destroy
-    redirect_to root_path, notice: 'Post deletado com sucesso'
+    redirect_to home_index_path, notice: 'Post deletado com sucesso'
   end
 
   private
