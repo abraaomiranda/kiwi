@@ -75,4 +75,13 @@ RSpec.feature 'User management', type: :feature do
     expect(page). to have_text('Você receberá um e-mail com instruções sobre como redefinir sua senha em poucos minutos.')
   end
 
+  scenario 'email should be sent when user forget its passowrd' do
+    visit new_user_password_path
+
+    fill_in 'Email', with: user.email
+    click_button 'Me envie instruções'
+
+    expect(page).to have_text('Você receberá um e-mail com instruções sobre como redefinir sua senha em poucos minutos.')
+  end
+
 end

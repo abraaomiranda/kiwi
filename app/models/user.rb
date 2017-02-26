@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :followers_relation, class_name: 'Follow', foreign_key: 'followed_id', dependent: :destroy
   has_many :followers, class_name: 'User', through: :followers_relation, source: :follower
   has_many :follows, class_name: 'User', through: :follows_relation, source: :followed
+  has_many :notifications, foreign_key: 'recipient_id'
 
   validates :username,
             :presence => true,

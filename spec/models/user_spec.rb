@@ -56,4 +56,20 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#following?' do
+    context 'should return true' do
+      it 'when user is following the other user' do
+        user = create :user
+        follow = create :follow, follower: user
+        expect(user.following?(follow.followed)).to be_truthy
+      end
+    end
+    context 'should return false' do
+      it 'when user is not following the other user' do
+        other_user = create :user
+        expect(user.following?(other_user)).to be_falsey
+      end
+    end
+  end
+
 end

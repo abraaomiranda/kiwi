@@ -1,4 +1,4 @@
-nav.navbar.navbar-inverse
+nav.navbar.navbar-default
   .container-fluid
     .navbar-header
       button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-2" data-toggle="collapse" type="button"
@@ -11,10 +11,16 @@ nav.navbar.navbar-inverse
       ul.nav.navbar-nav
         li
           = link_to 'Usuários', users_path
-      ul.nav.navbar-nav.navbar-right
         - if user_signed_in?
           li
             a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
+              | Notificações
+              span.badge#notificationCounter 0
+            = render 'notifications/notifications_list', notifications: @notifications
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          li
+            a.dropdown-toggle.gravatar aria-expanded="false" data-toggle="dropdown" href="#" role="button"
               = gravatar_image_for current_user
               span.caret
             ul.dropdown-menu role="menu"

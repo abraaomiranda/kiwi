@@ -1,0 +1,6 @@
+ul.dropdown-menu#notificationList role="menu"
+  - if notifications.any?
+    = render notifications
+  - else
+    li.text-center#noNotifications
+      small Nada novo :(
