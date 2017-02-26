@@ -6,6 +6,6 @@ h2 Esqueceu sua senha?
   }) do |f|
   = f.error_notification
   = f.input :email, required: true, autofocus: true
-  = f.button :submit, "Me envie instruções"
-  = render "devise/shared/links"
+  = f.button :submit, 'Me envie instruções', class: 'btn btn-default btn-block'
+  = render 'devise/shared/links'
 
