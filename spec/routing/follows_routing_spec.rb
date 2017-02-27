@@ -1,14 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe FollowsController, :type => :routing do
+RSpec.describe PostsController, :type => :routing do
   describe 'routing' do
 
     it 'routes to #create' do
-      expect(post: '/posts').to route_to('follows#create')
+      expect(post: '/posts').to route_to('posts#create')
     end
 
     it 'routes to #destroy' do
-      expect(delete: '/posts/1').to route_to('follows#destroy', id: '1')
+      expect(delete: '/posts/1').to route_to('posts#destroy', id: '1')
     end
   end
 end
