@@ -1,6 +1,18 @@
 # kiwi
 
-This project is a [Rails](http://rubyonrails.org/) application used to SOMETHING.
+This project is a [Rails](http://rubyonrails.org/) microblog application.
+
+Guest can:
+
+* See users posts.
+* Search for users.
+* Check users followers and followings.
+
+Registered users can additionally:
+
+* Post texts up to 140 characters.
+* Follow other users.
+* Receive notifications
 
 ## Dependencies
 
