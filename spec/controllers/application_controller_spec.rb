@@ -22,7 +22,7 @@ RSpec.describe ApplicationController, type: :controller do
       it 'change permited params' do
         allow(controller).to receive(:devise_controller?).and_return(true)
         allow(controller).to receive(:devise_parameter_sanitizer).and_return(ActionController::Parameters.new)
-        
+
         expect(controller.devise_parameter_sanitizer).to receive(:permit).twice
         get :index
       end
