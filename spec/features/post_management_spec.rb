@@ -11,7 +11,6 @@ RSpec.feature 'Post management', type: :feature do
     click_button 'Postar'
 
     expect(page).to have_text('New post!')
-    expect(Post.count).to eql 1
   end
 
   scenario 'User page should show his posts' do
@@ -28,7 +27,6 @@ RSpec.feature 'Post management', type: :feature do
     click_button 'Postar'
 
     expect(page).to have_text('Conteúdo não pode ficar em branco')
-    expect(Post.count).to eql 0
   end
 
   scenario 'Logged in user should delete his own posts' do
