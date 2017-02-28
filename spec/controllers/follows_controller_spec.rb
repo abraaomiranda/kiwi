@@ -44,18 +44,18 @@ RSpec.describe FollowsController, type: :controller do
   describe 'DELETE destroy' do
     let!(:follow) { create :follow, follower: follower, followed: followed }
     include_examples 'requires authentication' do
-      let(:action) { post :destroy, params: { id: 1 } }
+      let(:action) { delete :destroy, params: { id: 1 } }
     end
 
     it 'destroy a follow' do
       sign_in follower
-      expect { post :destroy, params: { id: follow.id } }.
+      expect { delete :destroy, params: { id: follow.id } }.
           to change(Follow, :count).by(-1)
     end
 
     it 'redirect to followed profile' do
       sign_in follower
-      post :destroy, params: { id: follow.id }
+      delete :destroy, params: { id: follow.id }
 
       expect(response).to redirect_to(user_path(followed))
     end

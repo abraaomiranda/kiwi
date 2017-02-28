@@ -38,18 +38,18 @@ RSpec.describe PostsController, type: :controller do
   describe 'DELETE destroy' do
     let!(:user_post) { create :post, author: user }
     include_examples 'requires authentication' do
-      let(:action) { post :destroy, params: { id: 1 } }
+      let(:action) { delete :destroy, params: { id: 1 } }
     end
 
     it 'destroy a post' do
       sign_in user
-      expect { post :destroy, params: { id: user_post.id } }.
+      expect { delete :destroy, params: { id: user_post.id } }.
           to change(Post, :count).by(-1)
     end
 
     it 'redirect to followed profile' do
       sign_in user
-      post :destroy, params: { id: user_post.id }
+      delete :destroy, params: { id: user_post.id }
 
       expect(response).to redirect_to(home_index_path)
     end
