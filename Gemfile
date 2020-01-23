@@ -3,7 +3,7 @@ ruby '2.3.1'
 
 gem 'rails',                  '5.0.0'
 gem 'puma',                   '2.15.3'
-gem 'secure_headers',         '3.6.1'
+gem 'secure_headers',         '3.9.0'
 gem 'jquery-rails',           '4.1.1'
 gem 'turbolinks',             '5.0.1'
 gem 'jbuilder',               '2.5.0'
