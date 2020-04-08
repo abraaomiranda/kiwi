@@ -81,3 +81,4 @@ First, check of your project has the correct configuration from [jumpup-heroku](
 ## Generated with PAH
 
 Generated with [PAH](https://github.com/Helabs/pah), an open source project created and maintained by [HE:labs](http://helabs.com.br).
+
