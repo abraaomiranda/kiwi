@@ -1,5 +1,5 @@
 # kiwi
-
+  
 This project is a [Rails](http://rubyonrails.org/) microblog application.
 
 Guest can:
